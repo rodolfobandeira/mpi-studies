@@ -1,11 +1,20 @@
 # mpi-studies
 Parallel Programming using MPI and C
 
+---
+
 #### Requirements
+
+##### Linux
 ```bash
 # Dependencies
 sudo apt install openmpi-bin libopenmpi-dev
 ```
+
+##### Windows
+* https://www.microsoft.com/en-us/download/confirmation.aspx?id=57467
+
+---
 
 #### Compiling
 
