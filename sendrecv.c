@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv) {
     int rank, size;
-    int send_data, recv_data;
+    int send_data, recv_data, source_rank, dest_rank;
 
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -38,12 +38,18 @@ int main(int argc, char** argv) {
    switch (rank) {
        case 0:
             send_data = 2023;
-            MPI_Sendrecv(&send_data, 1, MPI_INT, 1, 0, &recv_data, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            dest_rank = 1; // Sends data to process 1
+            source_rank = 1; // Receives data from process 1
+
+            MPI_Sendrecv(&send_data, 1, MPI_INT, dest_rank, 0, &recv_data, 1, MPI_INT, source_rank, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             printf("Process %d sent %d and received %d\n", rank, send_data, recv_data);
             break;
        case 1:
             send_data = 2014;
-            MPI_Sendrecv(&send_data, 1, MPI_INT, 0, 0, &recv_data, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            dest_rank = 0; // Sends this data to process 0
+            source_rank = 0; // Receives data from process 0
+
+            MPI_Sendrecv(&send_data, 1, MPI_INT, dest_rank, 0, &recv_data, 1, MPI_INT, source_rank, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             printf("Process %d sent %d and received %d\n", rank, send_data, recv_data);
             break;
    }
