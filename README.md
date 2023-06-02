@@ -38,3 +38,4 @@ To compile on Windows, use `Terminal` `->` `Run Build Task` on Microsoft Studio 
 
 # Reference
 * MPI Basics from Tom Nurkkala: https://www.youtube.com/watch?v=c0C9mQaxsD4
+* MPI Advanced from Tom Nurkkala: https://www.youtube.com/watch?v=q9OfXis50Rg
