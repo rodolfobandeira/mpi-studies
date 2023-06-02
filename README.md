@@ -13,6 +13,9 @@ sudo apt install openmpi-bin libopenmpi-dev
 
 ##### Windows
 * https://www.microsoft.com/en-us/download/confirmation.aspx?id=57467
+* Configuring MingW64 with Microsoft Studio Code: https://code.visualstudio.com/docs/cpp/config-mingw
+* Configuring MSI with Microsoft Studio Code: https://www.youtube.com/watch?v=bkfCrj-rBjU
+  * For this step, I had to replace the path MSMPI_INC and MSMPI_LIB64 to the real path otherwise it wouldn't work
 
 ---
 
@@ -30,3 +33,5 @@ mpicc hello_world.c -o hello_world.x
 
 mpicc hello_world -np 4 ./hello_world.x
 ```
+
+To compile on Windows, use `Terminal` `->` `Run Build Task` on Microsoft Studio Code. After that, in the terminal: `mpiexec -n 4 send_recv`
