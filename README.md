@@ -35,3 +35,6 @@ mpicc hello_world -np 4 ./hello_world.x
 ```
 
 To compile on Windows, use `Terminal` `->` `Run Build Task` on Microsoft Studio Code. After that, in the terminal: `mpiexec -n 4 send_recv`
+
+# Reference
+* MPI Basics from Tom Nurkkala: https://www.youtube.com/watch?v=c0C9mQaxsD4
